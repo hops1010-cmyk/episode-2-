@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-headline: "Space Grotesk", sans-serif;
+    --font-body: "Plus Jakarta Sans", sans-serif;
+    --font-telemetry: "Space Mono", monospace;
+  }
+
+  body {
+    background-color: #10131c;
+    color: #e1e2ee;
+    font-family: var(--font-body);
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-telemetry {
+  font-family: var(--font-telemetry);
+}
+
+/* Custom Tactical Animations */
+@keyframes hudScanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scanline {
+  animation: hudScanline 3s linear infinite;
+}
+
+@keyframes sonarPing {
+  0% { transform: scale(0.3); opacity: 0.9; }
+  70% { opacity: 0.3; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.sonar-ring {
+  animation: sonarPing 2.4s cubic-bezier(0.2, 0.8, 0.3, 1) infinite;
+}
+
+@keyframes reticleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotate-reticle {
+  animation: reticleRotate 16s linear infinite;
+}
+
+@keyframes shockwaveRipple {
+  0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.8); }
+  70% { box-shadow: 0 0 0 18px rgba(0, 240, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+}
+
+.throttle-active {
+  animation: shockwaveRipple 1.2s ease-out infinite;
+}
+
+/* Custom Scrollbar hidden */
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

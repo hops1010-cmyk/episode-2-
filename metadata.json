@@ -1,0 +1,8 @@
+{
+  "name": "Orbits: Deep Cosmos HUD",
+  "description": "Interactive deep-space celestial explorer and Esperanza-IX mission flight telemetry app with polished GSAP animations, 3D planetary inspection, tactical systems, and steganographic orbital communications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
