@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { sound } from '../utils/audio';
+import { PowerProgressBar } from './PowerProgressBar';
 
 interface ViewDiagnosticsProps {
   onShowToast: (msg: string) => void;
@@ -511,6 +512,13 @@ export const ViewDiagnostics: React.FC<ViewDiagnosticsProps> = ({ onShowToast, o
             THRUST {powerDistribution}% // DEFENSE {100 - powerDistribution}%
           </span>
         </div>
+        <PowerProgressBar
+          level={powerDistribution}
+          height={10}
+          showTicks={true}
+          glow={true}
+          colorScheme={powerDistribution > 60 ? 'cyan' : 'amber'}
+        />
         <input
           type="range"
           min="0"
@@ -519,7 +527,7 @@ export const ViewDiagnostics: React.FC<ViewDiagnosticsProps> = ({ onShowToast, o
           onChange={(e) => {
             setPowerDistribution(parseInt(e.target.value, 10));
           }}
-          className="w-full accent-[#00f0ff] bg-[#1d1f28] h-2 rounded-lg cursor-pointer shadow-[0_0_8px_rgba(0,240,255,0.3)]"
+          className="w-full accent-[#00f0ff] bg-[#1d1f28] h-2 rounded-lg cursor-pointer shadow-[0_0_8px_rgba(0,240,255,0.3)] mt-0.5"
         />
         <div className="flex justify-between font-telemetry text-[10px] text-[#b9cacb]/70">
           <span>PRIORITY: SPORE FIELD</span>

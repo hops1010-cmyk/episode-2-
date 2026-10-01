@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { sound } from './utils/audio';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
+import { PowerStatusWidget } from './components/PowerStatusWidget';
 import { ViewOrbits } from './components/ViewOrbits';
 import { ViewDiagnostics } from './components/ViewDiagnostics';
 import { ViewAscent } from './components/ViewAscent';
@@ -138,6 +139,11 @@ export default function App() {
 
       {/* Main Content View Container */}
       <main className="flex-1 flex flex-col relative w-full pt-16 pb-20 max-w-xl mx-auto">
+        {/* Persistent Power Status Battery Widget across all views */}
+        <div className="pt-2 pb-1">
+          <PowerStatusWidget onShowToast={showToast} currentTab={currentTab} />
+        </div>
+
         <div ref={mainViewRef} className="w-full">
           {currentTab === 'orbits' && <ViewOrbits onShowToast={showToast} />}
           {currentTab === 'diagnostics' && (
